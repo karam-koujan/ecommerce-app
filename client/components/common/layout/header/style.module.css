@@ -11,7 +11,7 @@
 
 .nav__list{
  justify-content: space-between;
- gap:3.5rem;
+ gap:3.1rem;
 }
 
 .nav__link{
@@ -37,7 +37,7 @@
    .mobileNav{
        background-color:var(--third);
        box-shadow: 0 1px 3px rgba(0, 0, 0, .2) , 0 0 0 #ffff;    
-       display: flex;
+       display: none;
        padding-block: 1rem;
        justify-content: center;
        opacity: 0;
@@ -45,6 +45,7 @@
        transition: all .4s ease-out;
    }
    .mobileNav.open{
+       display: flex;
        opacity: 1;
        transform: translateY(0);
    }
@@ -63,5 +64,10 @@
 @media(max-width:402px){
     .nav{
         padding-inline: 1rem;
+    }
+}
+@media(min-width:1500px){
+    .nav{
+        padding-inline:calc(100vw/6) ;
     }
 }
