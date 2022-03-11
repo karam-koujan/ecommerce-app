@@ -27,11 +27,9 @@ img{
     display:block;
     width:100%;
 }
-/* Layout */
-.flex{
-    display: flex;
-}
 
-.grid{
-    display: grid;
+
+.center{
+    display: block;
+    margin-inline: auto;
 }
