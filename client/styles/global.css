@@ -1,0 +1,37 @@
+
+*,*::before,*::after{
+    box-sizing:border-box;
+}
+html{
+    --Montserrat:'Montserrat', sans-serif;
+    --PlayfairDisplay:'Playfair Display', serif;
+    --primary:#0c0c0c;
+    --secondary:#f7444e;
+    --third:#ffffff;
+}
+body{
+    margin:0;
+    padding:0;
+}
+button{
+    cursor: pointer;
+}
+a{
+    text-decoration:normal;
+}
+h1,h2,h3,p{
+    margin:0;
+}
+img{
+    height:auto;
+    display:block;
+    width:100%;
+}
+/* Layout */
+.flex{
+    display: flex;
+}
+
+.grid{
+    display: grid;
+}
