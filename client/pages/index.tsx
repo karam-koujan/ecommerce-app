@@ -1,11 +1,12 @@
 import type { NextPage } from 'next';
+import Hero from '../components/landing/hero';
+import About from '../components/landing/about';
 const Home: NextPage = () => {
   return (
-    <div>
-    <button className="btn-secondary-round">
-      shop now
-    </button>
-    </div>
+    <>
+    <Hero/>
+    <About/>
+    </>
   )
 }
 
