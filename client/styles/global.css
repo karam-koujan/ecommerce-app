@@ -8,6 +8,11 @@ html{
     --primary:#0c0c0c;
     --secondary:#f7444e;
     --third:#ffffff;
+    --fourth:#002c3e;
+    --media-xs:360px;
+    --media-sm:500px;
+    --media-md:972px;
+    --media-lg:1450px;
 }
 body{
     margin:0;
@@ -17,10 +22,13 @@ button{
     cursor: pointer;
 }
 a{
-    text-decoration:normal;
+    text-decoration:none;
 }
-h1,h2,h3,p{
+h1,h2,h3,p,ul{
     margin:0;
+}
+li{
+    list-style: none;
 }
 img{
     height:auto;
