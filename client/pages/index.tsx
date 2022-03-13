@@ -3,6 +3,7 @@ import Hero from '../components/landing/hero';
 import About from '../components/landing/about';
 import Arrival from '../components/landing/arrival';
 import Products from '../components/landing/products';
+import Subscribe from '../components/landing/subscribe';
 const Home: NextPage = () => {
   return (
     <>
@@ -10,6 +11,7 @@ const Home: NextPage = () => {
     <About/>
     <Arrival/>
     <Products/>
+    <Subscribe/>
     </>
   )
 }
