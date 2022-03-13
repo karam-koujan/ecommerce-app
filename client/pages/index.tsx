@@ -4,6 +4,7 @@ import About from '../components/landing/about';
 import Arrival from '../components/landing/arrival';
 import Products from '../components/landing/products';
 import Subscribe from '../components/landing/subscribe';
+import Contact from '../components/landing/contact';
 const Home: NextPage = () => {
   return (
     <>
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
     <Arrival/>
     <Products/>
     <Subscribe/>
+    <Contact/>
     </>
   )
 }

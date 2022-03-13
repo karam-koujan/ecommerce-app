@@ -9,10 +9,12 @@ html{
     --secondary:#f7444e;
     --third:#ffffff;
     --fourth:#002c3e;
+    --fifth:#d4ced0;
     --media-xs:360px;
     --media-sm:500px;
     --media-md:972px;
     --media-lg:1450px;
+    scroll-behavior: smooth;
 }
 body{
     margin:0;

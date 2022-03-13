@@ -40,8 +40,8 @@ const Footer = ()=>{
                    </Link>
                    </dd>
                    <dd className={Styles.description__item}>
-                   <Link href="/contact"> 
-                   <a className={Styles.description__item__link}>shop</a>
+                   <Link href="/#contact"> 
+                   <a className={Styles.description__item__link}>contact</a>
                    </Link>
                    </dd>
                </dl>
@@ -63,7 +63,7 @@ const Footer = ()=>{
                    </Link>
                    </dd>
                    <dd className={Styles.description__item}>
-                   <Link href="/contact"> 
+                   <Link href="/"> 
                    <a className={Styles.description__item__link}>checkout</a>
                    </Link>
                    </dd>
