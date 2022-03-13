@@ -6,7 +6,7 @@ import Styles from "./style.module.css";
 import Card from "./card";
 const About = ()=>{
     return(
-       <section className={Styles.about}>
+       <section className={Styles.about} id="about">
          <h2 className={`text-center ${Styles.about__title}`}>why shop with us</h2>
          <div className={`flex ${Styles.about__container}`}>
          <Card title="fast delivery" text="variations of passages of Lorem Ipsum available" image={{src:truck,alt:"fast delivery"}}/>

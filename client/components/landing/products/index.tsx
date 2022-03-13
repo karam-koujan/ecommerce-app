@@ -7,7 +7,7 @@ import product3Img from "../../../public/assets/images/p3.png"
 
 const Products = ()=>{
     return(
-        <section className={Styles.products}>
+        <section className={Styles.products} id="products">
            <Title>
                our products
           </Title>
