@@ -1,5 +1,5 @@
 .arrival{
-   background-color: #d4ced0;
+   background-color: var(--fifth);
    justify-content: center;
    height: 500px;
 }

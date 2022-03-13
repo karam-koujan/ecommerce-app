@@ -14,6 +14,7 @@
     width:90%;
 }
 .introduction__title{
+    color: var(--fourth);
     font-size: clamp(2.9rem,11vw,4.5rem);
 }
 .introduction__title--firstPart{
@@ -40,6 +41,11 @@
 }
 @media(max-width:592px){
     .hero{
+        height: 600px;
         padding: 5rem 1rem ;
+    }
+    
+    .introduction__text{
+        width: 100%;
     }
 }
