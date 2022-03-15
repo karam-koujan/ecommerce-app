@@ -1,6 +1,7 @@
 import * as React from "react";
 import Image from "next/image";
 import Style from "./style.module.css";
+import Link from "next/link";
 
 
 interface imageInterface{
@@ -47,7 +48,13 @@ const Product = ({image,name,price}:props)=>{
                 <div className={Style["product__btn__container--opacity"]}></div>
                 <div className={Style["product__btn__container--no-opacity"]}>
                 <button className={`btn-primary-round ${Style.product__btn} `} onClick={_=>handleAddCard({name,image,price})}>add to cart</button>
-                <button className={`btn-secondary-round ${Style.product__btn}`}>buy now</button>
+                <button className={`btn-secondary-round ${Style.product__btn}`} onClick={_=>handleAddCard({name,image,price})}>
+                    <Link href="/checkout" >
+                     <a>
+                    buy now
+                     </a>
+                    </Link>
+                    </button>
                </div>
             </div>
             
