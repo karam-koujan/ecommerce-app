@@ -7,16 +7,8 @@ import shopCard from "../../../../public/assets/images/shopCard.svg";
 import Hamburger from "../../hamburger";
 import Styles from "./style.module.css";
 import {useProductContext} from "../../../../context/productContext";
-interface imageInterface{
-    src:string,
-    alt:string
-}
-interface productsInterface{
-    name:string,
-    amount:number,
-    image:imageInterface,
-    price:string
-}
+
+
 const Header = ()=>{
    const [showNavBar,setShowNavBar] = React.useState(false)
    const {products} = useProductContext()

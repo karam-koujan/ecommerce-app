@@ -25,6 +25,7 @@ const context = React.createContext<contextInterface>({products:[],setProducts:(
 const ProductContext = ({children}:props)=>{
     const [products,setProducts] = React.useState<productsInterface[]>([])
     React.useEffect(()=>{
+        console.log("render")
         const data:any = localStorage.getItem("products")
         setProducts(JSON.parse(data))
     },[])

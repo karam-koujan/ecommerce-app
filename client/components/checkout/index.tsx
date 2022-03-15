@@ -16,18 +16,15 @@ price:string,
 amount:string
 }
 const CheckOut = ()=>{
-    const [products,setProducts] = React.useState<productInterface[]>([])
-     const productContext = useProductContext() 
+    //const [products,setProducts] = React.useState<productInterface[]>([])
+     const {products,setProducts} = useProductContext() 
     const [total,setTotal] = React.useState(0);
     React.useEffect(()=>{
-     const data:any = localStorage.getItem("products"); 
-     const products:productInterface[] = JSON.parse(data); 
      const productsPrice = products.map(product=>Number(product.price.split("").filter(char=>char!=="$").join("")))
      if(productsPrice.length!==0){
          const total =  productsPrice.reduce((acc,price)=>acc+price)
          setTotal(total)
      }
-     setProducts(()=>products)
        
     },[])
     const router = useRouter()
@@ -40,7 +37,7 @@ const CheckOut = ()=>{
            setTotal(total)
         }
         setProducts(restProducts)
-        productContext.setProducts(restProducts)
+    
        localStorage.setItem("products",JSON.stringify(restProducts))
    } 
    
