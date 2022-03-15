@@ -27,7 +27,7 @@ const Header = ()=>{
                 <Link href="/#about"><a  className={Styles.nav__link}>about</a></Link>
             </li>
             <li>
-            <Link href="/shop"><a><Image src={shopCard} alt="shop card logo" width={17} height={17}/></a></Link>
+            <Link href="/checkout"><a><Image src={shopCard} alt="shop card logo" width={17} height={17}/></a></Link>
             </li>
             </ul>
             <Hamburger showNavBar={showNavBar} setShowNavBar={setShowNavBar} />
