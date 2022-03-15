@@ -1,7 +1,9 @@
 import * as React from "react";
 import Image from "next/image";
 import Styles from "./style.module.css";
+import StripeCheckout from "react-stripe-checkout";
 import Shirt from "../../public/assets/images/p1.png";
+import logo from "../../public/assets/images/logo.png";
 import Product from "./product";
 
 interface imageInterface{
@@ -19,29 +21,38 @@ const CheckOut = ()=>{
     const [products,setProducts] = React.useState<productInterface[]>([])
     const [total,setTotal] = React.useState(0);
     React.useEffect(()=>{
-
      const data:any = localStorage.getItem("products"); 
-     const products:productInterface[] = JSON.parse(data);   
+     const products:productInterface[] = JSON.parse(data); 
+     console.log(products)
      const productsPrice = products.map(product=>Number(product.price.split("").filter(char=>char!=="$").join("")))
-     const total =  productsPrice.reduce((acc,price)=>acc+price)
+     console.log(productsPrice)
+     if(productsPrice.length!==0){
+         const total =  productsPrice.reduce((acc,price)=>acc+price)
+         setTotal(total)
+     }
      setProducts(()=>products)
-     setTotal(total)
+       
     },[])
 
    const handleRemoveProduct = (idx:number)=>{
        const restProducts = products.filter((_,index)=> index!==idx)
        const productsPrice = restProducts.map(product=>Number(product.price.split("").filter(char=>char!=="$").join("")))
-       const total =  productsPrice.reduce((acc,price)=>acc+price)
+       if(productsPrice.length!==0){
+          const total:number=  productsPrice.reduce((acc,price)=>acc+price)
+           setTotal(total)
+       }
        setProducts(restProducts)
-       setTotal(total)
        localStorage.setItem("products",JSON.stringify(restProducts))
    } 
+   
   
     if(products.length===0){
         return(
+            <section className={Styles.shoppingCart}>
             <div className={Styles.empty__card}>
             <p className={`text-center ${Styles.empty__card__text}`}>Card is empty</p>
         </div>
+            </section>
         )
     }
     return(
@@ -62,12 +73,14 @@ const CheckOut = ()=>{
            <div className={Styles.total}>
                <div>
                    <p className={Styles.total__header}>total <span className={Styles.total__price}>${total}</span></p>
+                   <StripeCheckout stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"  name="Famms" description="Buy clothes"  amount={total*100}  billingAddress shippingAddress>
                    <button className="btn-primary text-bold">
                        pay now
                    </button>
+                   </StripeCheckout>
                    </div>
            </div>
-
+        
         </section>
     )
 }

@@ -99,7 +99,7 @@
 }
 .empty__card{
     border: 2px solid var(--secondary);
-    margin: auto;
+    margin:0 auto;
     padding-block: 1.5rem;
     width:min(100%,700px);
 }
