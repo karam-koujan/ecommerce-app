@@ -1,10 +1,9 @@
 import * as React from "react";
-import Image from "next/image";
 import Styles from "./style.module.css";
 import StripeCheckout from "react-stripe-checkout";
-import Shirt from "../../public/assets/images/p1.png";
-import logo from "../../public/assets/images/logo.png";
+import { useRouter } from "next/router";
 import Product from "./product";
+import { useProductContext } from "../../context/productContext";
 
 interface imageInterface{
     src:string,
@@ -16,16 +15,14 @@ name:string,
 price:string,
 amount:string
 }
-type ss = string | null
 const CheckOut = ()=>{
     const [products,setProducts] = React.useState<productInterface[]>([])
+     const productContext = useProductContext() 
     const [total,setTotal] = React.useState(0);
     React.useEffect(()=>{
      const data:any = localStorage.getItem("products"); 
      const products:productInterface[] = JSON.parse(data); 
-     console.log(products)
      const productsPrice = products.map(product=>Number(product.price.split("").filter(char=>char!=="$").join("")))
-     console.log(productsPrice)
      if(productsPrice.length!==0){
          const total =  productsPrice.reduce((acc,price)=>acc+price)
          setTotal(total)
@@ -33,6 +30,7 @@ const CheckOut = ()=>{
      setProducts(()=>products)
        
     },[])
+    const router = useRouter()
 
    const handleRemoveProduct = (idx:number)=>{
        const restProducts = products.filter((_,index)=> index!==idx)
@@ -40,12 +38,16 @@ const CheckOut = ()=>{
        if(productsPrice.length!==0){
           const total:number=  productsPrice.reduce((acc,price)=>acc+price)
            setTotal(total)
-       }
-       setProducts(restProducts)
+        }
+        setProducts(restProducts)
+        productContext.setProducts(restProducts)
        localStorage.setItem("products",JSON.stringify(restProducts))
    } 
    
-  
+  const onToken = ()=>{
+      localStorage.setItem("products",JSON.stringify([]))
+       router.push("/congratulation")
+}
     if(products.length===0){
         return(
             <section className={Styles.shoppingCart}>
@@ -73,7 +75,7 @@ const CheckOut = ()=>{
            <div className={Styles.total}>
                <div>
                    <p className={Styles.total__header}>total <span className={Styles.total__price}>${total}</span></p>
-                   <StripeCheckout stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"  name="Famms" description="Buy clothes"  amount={total*100}  billingAddress shippingAddress>
+                   <StripeCheckout stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233" token={onToken} name="Famms" description="Buy clothes"  amount={total*100}  billingAddress shippingAddress>
                    <button className="btn-primary text-bold">
                        pay now
                    </button>

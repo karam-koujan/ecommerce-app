@@ -30,6 +30,25 @@
 .mobileNav{
     display: none;
 }
+.shopping__card{
+    position: relative;
+}
+.shopping__card__productNum{
+    background-color: var(--secondary);
+    border-radius: 100%;
+    color: var(--third);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--Montserrat);
+    font-size: .7rem;
+    position: absolute;
+    width: 15px ;
+   height: 15px;
+   text-align: center; 
+   top:-20%;
+   right:-50%;
+}
 @media(max-width:972px){
     .nav__list{
       display: none;

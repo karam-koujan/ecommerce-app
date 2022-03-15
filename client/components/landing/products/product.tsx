@@ -2,8 +2,7 @@ import * as React from "react";
 import Image from "next/image";
 import Style from "./style.module.css";
 import Link from "next/link";
-
-
+import {useProductContext} from "../../../context/productContext"
 interface imageInterface{
         src:string,
         alt:string
@@ -22,11 +21,18 @@ interface productInterface{
 }
 
 const Product = ({image,name,price}:props)=>{
- 
+  const {setProducts} = useProductContext()
   const handleAddCard = ({name,image,price}:props)=>{
     const data:any = localStorage.getItem("products");
-    const newProducts:string = JSON.stringify([...JSON.parse(data),{name,image,price,amount:1}])    
-    localStorage.setItem("products",newProducts)  
+    if(data===null){
+        const newProducts:string = JSON.stringify([{name,image,price,amount:1}])    
+        localStorage.setItem("products",newProducts)
+        setProducts([{name,image,price,amount:1}])  
+    }else{
+        const newProducts:string = JSON.stringify([...JSON.parse(data),{name,image,price,amount:1}])    
+        localStorage.setItem("products",newProducts)
+        setProducts([...JSON.parse(data),{name,image,price,amount:1}])  
+    }
    }
     
     return(

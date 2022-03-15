@@ -69,10 +69,11 @@
     transition: all .3s ease;
     width: 40px;
 }
-.amount__btn:focus,.amount__btn:hover{
+.amount__btn:focus,.amount__btn:hover,.amount__btn--disabled{
     background-color: transparent;
     color: var(--secondary);
 }
+
 .shoppingCart__product__price{
     font-weight: 600;
 }

@@ -8,9 +8,7 @@ import Layout from "../components/common/layout";
 
 function MyApp({ Component, pageProps }: AppProps){
      return(
-         <Layout>
              <Component {...pageProps} />
-         </Layout>
       )
 }
    

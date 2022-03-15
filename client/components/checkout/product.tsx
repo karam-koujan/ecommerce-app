@@ -17,10 +17,7 @@ setTotal:React.Dispatch<React.SetStateAction<number>>
 const Product = ({name,image,price,handleRemoveProduct,index,setTotal}:props)=>{
     const [amount,setAmount] = React.useState(1) ;
     const priceNum:number = Number(price.split("").filter(char=>char!=="$").join(""));
-    const handleChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
-        setAmount(Number(e.target.value))
-        setTotal(total=>total+priceNum*amount)
-        }
+   
      const handleIncrementAmount  = ()=>{
          setAmount(amount+1)
          setTotal(total=>total+priceNum*amount)
@@ -48,7 +45,7 @@ const Product = ({name,image,price,handleRemoveProduct,index,setTotal}:props)=>{
         </td>
         <td >
             <div className={Styles.amount__container}>
-             <button className={Styles.amount__btn } onClick={handleDecrementAmount}>-</button>
+             <button className={`${Styles.amount__btn} ${amount===1?Styles["amount__btn--disabled"]:""}`}  disabled={amount===1} onClick={handleDecrementAmount}>-</button>
             <input type="number" name="amount" min="1"  value={amount}  className={Styles.shoppingCart__product__quantity}/>
             <button className={Styles.amount__btn} onClick={handleIncrementAmount}>+</button>
             </div>

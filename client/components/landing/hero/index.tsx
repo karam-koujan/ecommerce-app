@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Styles from "./style.module.css";
 
 
@@ -14,7 +15,13 @@ const Hero = ()=>{
         <p className={Styles.introduction__text}>
         Explicabo esse amet tempora quibusdam laudantium, laborum eaque magnam fugiat hic? Esse dicta aliquid error repudiandae earum suscipit fugiat molestias, veniam, vel architecto veritatis delectus repellat modi impedit sequi.
         </p>
-        <button className="btn-primary text-bold">shop now</button>
+        <button className="btn-primary text-bold">
+            <Link href="/#products">
+            <a>
+            shop now
+            </a>
+            </Link>
+            </button>
     </div>
    </section>
     )

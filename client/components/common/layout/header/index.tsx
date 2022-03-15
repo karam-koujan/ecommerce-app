@@ -6,8 +6,20 @@ import logo from "../../../../public/assets/images/logo.png";
 import shopCard from "../../../../public/assets/images/shopCard.svg";
 import Hamburger from "../../hamburger";
 import Styles from "./style.module.css";
+import {useProductContext} from "../../../../context/productContext";
+interface imageInterface{
+    src:string,
+    alt:string
+}
+interface productsInterface{
+    name:string,
+    amount:number,
+    image:imageInterface,
+    price:string
+}
 const Header = ()=>{
    const [showNavBar,setShowNavBar] = React.useState(false)
+   const {products} = useProductContext()
     const router = useRouter();
     return(
         <header className={`${Styles.header} `}>
@@ -30,8 +42,9 @@ const Header = ()=>{
             <li>
                 <Link href="/#about"><a  className={Styles.nav__link}>about</a></Link>
             </li>
-            <li>
+            <li className={Styles.shopping__card}>
             <Link href="/checkout"><a><Image src={shopCard} alt="shop card logo" width={17} height={17}/></a></Link>
+            {products.length?<div className={Styles.shopping__card__productNum}>{products.length}</div>:null}
             </li>
             </ul>
             <Hamburger showNavBar={showNavBar} setShowNavBar={setShowNavBar} />
@@ -50,8 +63,9 @@ const Header = ()=>{
             <li>
                 <Link href="/#about"><a  className={Styles.nav__link}>about</a></Link>
             </li>
-            <li>
+            <li className={Styles.shopping__card}>
             <Link href="/checkout"><a><Image src={shopCard} alt="shop card logo" width={17} height={17}/></a></Link>
+            {products.length?<div className={Styles.shopping__card__productNum}>{products.length}</div>:null}
             </li>
             </ul>
             </nav>
