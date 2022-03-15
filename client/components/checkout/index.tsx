@@ -19,13 +19,21 @@ const CheckOut = ()=>{
     const [products,setProducts] = React.useState<productInterface[]>([])
     const [total,setTotal] = React.useState(0);
     React.useEffect(()=>{
-     const data:any = localStorage.getItem("products");  
-      setProducts(()=>JSON.parse(data))
+
+     const data:any = localStorage.getItem("products"); 
+     const products:productInterface[] = JSON.parse(data);   
+     const productsPrice = products.map(product=>Number(product.price.split("").filter(char=>char!=="$").join("")))
+     const total =  productsPrice.reduce((acc,price)=>acc+price)
+     setProducts(()=>products)
+     setTotal(total)
     },[])
 
    const handleRemoveProduct = (idx:number)=>{
        const restProducts = products.filter((_,index)=> index!==idx)
+       const productsPrice = restProducts.map(product=>Number(product.price.split("").filter(char=>char!=="$").join("")))
+       const total =  productsPrice.reduce((acc,price)=>acc+price)
        setProducts(restProducts)
+       setTotal(total)
        localStorage.setItem("products",JSON.stringify(restProducts))
    } 
   
@@ -59,11 +67,7 @@ const CheckOut = ()=>{
                    </button>
                    </div>
            </div>
-           {/*
-           <div className={Styles.empty__card}>
-               <p className={`text-center ${Styles.empty__card__text}`}>Card is empty</p>
-           </div>
-    */}
+
         </section>
     )
 }

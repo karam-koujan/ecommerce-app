@@ -16,7 +16,6 @@ setTotal:React.Dispatch<React.SetStateAction<number>>
 
 const Product = ({name,image,price,handleRemoveProduct,index,setTotal}:props)=>{
     const [amount,setAmount] = React.useState(1) ;
-    React.useEffect(()=>setTotal(total=>total+priceNum*amount),[])
     const priceNum:number = Number(price.split("").filter(char=>char!=="$").join(""));
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
         setAmount(Number(e.target.value))
@@ -30,14 +29,16 @@ const Product = ({name,image,price,handleRemoveProduct,index,setTotal}:props)=>{
      const handleDecrementAmount = ()=>{
         if(amount>1){
             setAmount(amount-1)
-            setTotal(total=>total-priceNum)
-          // 10+5*2 = 20 ;  10+5 = 14   
+            setTotal(total=>total-priceNum*(amount-1))
+          // 10+5*2 = 20 ;  10+5 = 15 ; 10+5*3 = 25-4  
         } 
      }  
     return(
         <tr className={Styles.shoppingCart__body__row} key={index}>
         <td className={`flex ${Styles.shoppingCart__item} ${Styles.shoppingCart__product}`}>
-            <Image src={image.src} alt={image.alt} height={100} width={100}/>
+            <div className={Styles.product__image}>
+            <Image src={image.src} alt={image.alt} height={100} width={100} />
+            </div>
             <div className={Styles.shoppingCart__product__name__container}>
             <p>{name}</p>
             <button className={Styles.shoppingCart__product__btn} onClick={_=>handleRemoveProduct(index)}>

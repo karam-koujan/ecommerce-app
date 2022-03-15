@@ -12,7 +12,11 @@ const Header = ()=>{
     return(
         <header className={`${Styles.header} `}>
             <nav className={`${Styles.nav} flex`}>
+             <Link href="/">
+                 <a>
             <Image src={logo} alt="the website logo" width={250} height={43.31}/>
+                 </a>
+            </Link>
             <ul className={`flex ${Styles.nav__list}`}>
             <li>
                 <Link href="/" ><a className={`${Styles.nav__link} ${router.asPath === "/"?Styles["nav__link--active"]:""}`}>home</a></Link>
@@ -47,7 +51,7 @@ const Header = ()=>{
                 <Link href="/#about"><a  className={Styles.nav__link}>about</a></Link>
             </li>
             <li>
-            <Link href="/shop"><a><Image src={shopCard} alt="shop card logo" width={17} height={17}/></a></Link>
+            <Link href="/checkout"><a><Image src={shopCard} alt="shop card logo" width={17} height={17}/></a></Link>
             </li>
             </ul>
             </nav>

@@ -108,3 +108,20 @@
     font-family: var(--Montserrat);
     font-size: 1.3rem;
 }
+@media(max-width:600px){
+    .total{
+        justify-content: center;
+    }
+    .amount__btn{
+        padding: .4rem;
+        width: 25px;
+    }
+}
+@media(max-width:500px){
+    .product__image{
+        display: none;
+    }
+    .shoppingCart__product__btn{
+        margin-top: .5rem;
+    }
+}
