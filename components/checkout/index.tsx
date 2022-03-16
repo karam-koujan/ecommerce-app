@@ -20,13 +20,13 @@ const CheckOut = ()=>{
      const {products,setProducts} = useProductContext() 
     const [total,setTotal] = React.useState(0);
     React.useEffect(()=>{
-     const productsPrice = products.map(product=>Number(product.price.split("").filter(char=>char!=="$").join("")))
-     if(productsPrice.length!==0){
-         const total =  productsPrice.reduce((acc,price)=>acc+price)
+     const productsPrice =  products.map(product=>Number(product.price.split("").filter(char=>char!=="$").join("")))
+    console.log(products)
+     const total =  products.length ? productsPrice.reduce((acc,price)=>acc+price) : 0
          setTotal(total)
-     }
+     
        
-    },[])
+    },[products.length])
     const router = useRouter()
 
    const handleRemoveProduct = (idx:number)=>{
