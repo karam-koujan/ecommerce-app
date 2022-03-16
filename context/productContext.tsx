@@ -27,7 +27,11 @@ const ProductContext = ({children}:props)=>{
     React.useEffect(()=>{
         console.log("render")
         const data:any = localStorage.getItem("products")
-        setProducts(JSON.parse(data))
+        if(data!==null){
+            setProducts(JSON.parse(data))
+        }else{
+            setProducts([])
+        }
     },[])
     return(
         <context.Provider value={{products,setProducts}}>
