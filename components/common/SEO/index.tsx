@@ -1,5 +1,5 @@
 import Head from "next/head";
-import image from "../../public/assets/images/logo.png";
+import image from "../../../public/assets/images/logo.png";
 interface props{
     title:string
 }
