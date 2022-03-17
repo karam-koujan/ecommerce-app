@@ -7,7 +7,7 @@ import Subscribe from '../components/landing/subscribe';
 import Contact from '../components/landing/contact';
 import Layout from '../components/common/layout';
 import {ProductContext} from '../context/productContext';
-import SEO from '../components/SEO';
+import SEO from '../components/common/SEO';
 const Home: NextPage = () => {
   return (
     <>

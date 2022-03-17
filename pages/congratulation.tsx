@@ -1,5 +1,5 @@
 import Congratulation from "../components/congatulation";
-import SEO from "../components/SEO";
+import SEO from "../components/common/SEO";
 
 
 
