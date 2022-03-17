@@ -7,8 +7,11 @@ import Subscribe from '../components/landing/subscribe';
 import Contact from '../components/landing/contact';
 import Layout from '../components/common/layout';
 import {ProductContext} from '../context/productContext';
+import SEO from '../components/SEO';
 const Home: NextPage = () => {
   return (
+    <>
+    <SEO title="ecommerce app"/>
     <ProductContext>
     <Layout>
     <Hero/>
@@ -19,6 +22,7 @@ const Home: NextPage = () => {
     <Contact/>
     </Layout>
     </ProductContext>
+  </>
   )
 }
 

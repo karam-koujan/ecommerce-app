@@ -63,7 +63,7 @@ const Footer = ()=>{
                    </Link>
                    </dd>
                    <dd className={Styles.description__item}>
-                   <Link href="/"> 
+                   <Link href="/checkout"> 
                    <a className={Styles.description__item__link}>checkout</a>
                    </Link>
                    </dd>
